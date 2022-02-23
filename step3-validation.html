@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 80px;
+            padding: 5px;
+        }
+        button{
+            margin-left: 94px;
+        }
+    </style>
+    <script>
+        function init(){
+            let uname = document.getElementById("uname")
+            uname.setCustomValidity("Enter your Name");
+            uname.addEventListener("input",() => {
+                if(uname.value == ''){
+                    uname.setCustomValidity("Name cannot be empty");
+                }else{
+                    uname.setCustomValidity("");
+                }
+            });
+
+            let uage = document.getElementById("uage")
+            uage.setCustomValidity("your age")
+            uage.addEventListener("input",() =>{
+                if(uage.value == ''){
+                    uage.setCustomValidity("age required")
+                }else if(uage.value <18){
+                    uage.setCustomValidity("too young")
+                }else if(uage.value > 90){
+                    uage.setCustomValidity("too old")
+                }else{
+                    uage.setCustomValidity("")
+                }
+                });
+
+            let uemail = document.getElementById("uemail")
+            uemail.setCustomValidity("Your email")
+            uemail.addEventListener("input", () => {
+                if(uemail.value ==''){
+                    uemail.setCustomValidity("Email required");
+                }else{
+                    uemail.setCustomValidity("");
+                }
+            });
+
+            let uphone = document.getElementById("uphone")
+            uphone.setCustomValidity("Enter your phone Number")
+            uphone.addEventListener("input", () =>{
+                if(uphone.value.length != 12){
+                    uphone.setCustomValidity("Enter a 10 digit number")
+                }else{
+                    uphone.setCustomValidity("")
+                }
+            });
+            
+        }
+        
+        
+        onload = init;
+
+    </script>
+</head>
+<body>
+    <form action="#" method="get">
+    <div>
+        <label for="uname">User Name</label>
+        <input type="text" required name="username" id="uname"/>
+    </div>
+    <div>
+        <label for="uage">User Age</label>
+        <input type="number" required name="userage" id="uage"/>
+    </div>
+    <div>
+        <label for="uemail">Email </label>
+        <input  pattern=".*@.*" required type="email" name="usermail" id="uemail"/>
+    </div>
+    <div>
+        <label for="uphone">Phone </label>
+        <input title="***-****-***" pattern="\d{3}-\d{4}-\d{3}" type="tel" required name="userphone" id="uphone"/>
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
