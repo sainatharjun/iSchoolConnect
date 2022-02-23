@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var can,ctx;
+    addEventListener('load',init)
+    function init(){
+      can=document.getElementsByTagName('canvas')[0];
+      context=can.getContext('2d');
+      can.height=600;
+      can.width=600;
+      context.font="bold 20px arial"
+
+      context.beginPath();
+      context.moveTo(400, 200);
+      context.lineTo(500, 200);
+      context.lineTo(400, 300);
+      context.lineTo(200, 300);
+      context.lineTo(100, 200);
+      context.closePath();
+      context.moveTo(300, 100);
+      context.lineTo(200, 195);
+      context.lineTo(400, 195);
+      context.closePath();
+
+      context.lineWidth = 10;
+      context.strokeStyle = '#666666';
+      context.stroke();
+
+      context.fillStyle = "orange";
+      context.fill();
+    }
+  </script>
+</head>
+<body>
+  <canvas style="border-style: solid; border-color: black;"></canvas>
+</body>
+</html>

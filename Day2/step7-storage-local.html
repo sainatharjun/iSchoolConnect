@@ -9,18 +9,48 @@
     function init(){
       document.getElementsByTagName('button')[0].addEventListener('click',clickHandler);
       document.getElementsByTagName('button')[1].addEventListener('click',getHandler);
+      document.getElementsByTagName('button')[2].addEventListener('click',clearStorage);
+      document.getElementsByTagName('button')[3].addEventListener('click',removeItem);
+      document.getElementsByTagName('button')[4].addEventListener('click',showKey);
+
     }
     function clickHandler(){
-      localStorage.user=document.getElementById('ti').value
+      localStorage.setItem(document.getElementById('key').value,document.getElementById('ti').value)
+      console.log(localStorage)
     }
     function getHandler(){
-      console.log('User is:', localStorage.user)
+      console.log('Item is:', localStorage.getItem(document.getElementById('key').value))
     }
+    function clearStorage(){
+      localStorage.clear();
+      alert('local storage cleared');
+      console.log(localStorage);
+    }
+    function removeItem(){
+      localStorage.removeItem(document.getElementById('key').value)
+      alert('item removed')
+      console.log(localStorage)
+    }
+    function showKey(){
+      console.log(localStorage.key(document.getElementById('index').value))
+    }
+
   </script>
 </head>
 <body>
-  <input type="text" name="ti" id="ti"> <button>Set User</button>
+  <h4>Enter the local storage item</h4>
+  <input type="text" name="key" placeholder="Key" id="key">
+  <input type="text" name="ti" placeholder="Value" id="ti"> 
   <br>
-  <button>Get User</button>
+  <button>Set Item</button>
+  <br>
+  <button>Get Item</button>
+  <br>
+  <button>Clear local storage</button>
+  <br>
+  <button>Remove item</button>
+  <br>
+  <input type="number" name="index" placeholder="Index" id="index">
+  <button>Show key at the index</button>
 </body>
 </html>
