@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .square{
+      height: 100px;
+      width: 100px;
+      margin: 30px;
+    }
+    .rectangle{
+      height: 100px;
+      width: 200px;
+      margin: 30px;
+    }
+    .circle{
+      height: 100px;
+      width: 100px;
+      margin: 30px;
+      border: solid 10px black;
+      border-radius: 50%;
+    }
+    .square:first-child{
+      background-color: blue;
+    }
+    .square:last-child{
+      background-color: green;
+    }
+    .square:nth-child(2){
+      background-color: red;
+    }
+    .square:nth-child(odd){
+      border: solid 10px black;
+    }
+    .square:nth-child(even){
+      border: solid 10px orange;
+    }
+    .square:nth-child(2n){
+      border-style: dotted;
+    }
+    .square:nth-child(3n+4){
+      border-style: dashed;
+    }
+    .square:nth-child(3n-4){
+      border-style: ridge;
+    }
+    .square:nth-of-type(6){
+    box-shadow: 0 0px 20px 10px black;
+    }
+    .square:nth-of-type(odd){
+    box-shadow: 0 0px 10px 5px rgb(128, 0, 38);
+    }
+    .square:nth-last-child(3){
+      background-color: cornflowerblue;
+    }
+    .square:nth-last-of-type(2){
+      background-color: crimson;
+    }
+    .circle:first-of-type{
+background-color: darkmagenta;
+    }
+    .circle:last-of-type{
+background-color: rgb(51, 139, 0);
+    }
+    .rectangle:only-child{
+      background-color: darkslategray;
+    }
+    .rectangle:only-child{
+      background-color: darkslategray;
+    }
+    .rectangle:only-of-type{
+      border:solid 10px gold;
+    }
+    input[type='checkbox']{
+      height: 20px;
+      width: 20px;
+      transition: 500ms;
+    }
+    input[type='checkbox']:checked{
+      width: 15px;
+    }
+    input[type='radio']:enabled{
+      box-shadow: 0 0px 10px 10px black;
+    }
+    input[type='checkbox']:disabled{
+      box-shadow: 0 0px 10px 10px green;
+    }
+    input[type='text']:empty{
+      border: solid 10px pink;
+    }
+    input[type='radio']:not(enabled){
+      box-shadow: 0 0px 10px 10px rgb(243, 9, 9);
+    }
+    .rectangle-parent > .rectangle{
+      box-shadow: 0 0px 10px 10px rgb(83, 243, 9);
+
+    }
+    input{
+      margin: 20px;
+    }
+    td{
+      border: solid 10px black;
+    }
+    :root{
+      background-color: rgb(126, 191, 255);
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+
+    <table>
+      <tr>
+              <td>
+           <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+      </td>
+      <td>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    </td>
+    <td>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+      </td>
+      <td class="rectangle-parent">
+        <div class="rectangle"></div>
+      </td>
+      <td>
+    <input type="checkbox" checked>
+    <input type="checkbox">
+    <input type="checkbox" disabled>
+    <input type="text">
+    <input type="radio">
+    <input type="radio" disabled>
+
+      </td>
+      </tr>
+
+
+    </table>
+
+ 
+    
+
+
+
+  </section>
+</body>
+</html>
