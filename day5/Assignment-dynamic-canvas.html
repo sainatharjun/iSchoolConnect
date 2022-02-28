@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var can,ctx, uname,age,dob,x=20,y=20;
+    function init(){
+      x=20,y=20;
+      uname=document.getElementById('name').value;
+      age=document.getElementById('age').value;
+      dob=document.getElementById('dob').value;
+      n=document.getElementById('ns').value;
+      can=document.getElementsByTagName('canvas')[0];
+      ctx=can.getContext('2d');
+      ctx.clearRect(0,0,can.width,can.height)
+      ctx.font="bold 40px arial"
+      ctx.fillText('Happy '+age+'th birthday '+uname, 200, 470)
+      ctx.fillText('DOB: '+dob, 250, 520)
+
+      ctx.fillStyle = "blue";
+         ctx.beginPath();
+for(i=1;i<=n;i++){
+         ctx.moveTo(108+x, 0.0+y);
+         ctx.lineTo(141+x, 70+y);
+         ctx.lineTo(218+x, 78.3+y);
+         ctx.lineTo(162+x, 131+y);
+         ctx.lineTo(175+x, 205+y);
+         ctx.lineTo(108+x, 170+y);
+         ctx.lineTo(41.2+x, 205+y);
+         ctx.lineTo(55+x, 131+y);
+         ctx.lineTo(1+x, 78+y);
+         ctx.lineTo(75+x, 68+y);
+         ctx.lineTo(108+x, 0+y);
+         ctx.closePath();
+
+  if(i%4==0){
+    y+=200;x=0;
+  }
+  else{
+    x+=200
+  }
+}
+ctx.fill(); 
+
+    }
+  </script>
+</head>
+<body>
+  <canvas width="900" height="600" style="border-style: solid; border-color: black;"></canvas>
+<br>
+<input type="text" id="name" placeholder="Name">
+<input type="number" id="age" placeholder="Age">
+<input type="date" id="dob">
+<input type="number" id="ns" min=1 max="8" placeholder="No. of Stars">
+
+<input type="button" value="Submit" onclick="init()">
+
+</body>
+</html>
