@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Dynamic Greeting Card</title>
   <script>
     var can,ctx, uname,age,dob,x=20,y=20;
     function init(){
@@ -12,14 +12,32 @@
       age=document.getElementById('age').value;
       dob=document.getElementById('dob').value;
       n=document.getElementById('ns').value;
+      sc=document.getElementById('sc').value;
+
+      if(uname==""||age==""||dob==""||n==""||sc==""){
+        alert('Please fill all the fields');
+        return;
+      }
+
+      if(n>8){
+        alert('Set Number of stars less than 8')
+        return
+      }
+      else if(n<1){
+        alert('Number of stars should atleast be 1')
+        return
+      }
       can=document.getElementsByTagName('canvas')[0];
       ctx=can.getContext('2d');
       ctx.clearRect(0,0,can.width,can.height)
+      ctx.fillStyle = 'darkblue';
+      ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
       ctx.font="bold 40px arial"
-      ctx.fillText('Happy '+age+'th birthday '+uname, 200, 470)
+      ctx.fillStyle = "lightblue";
+      ctx.fillText('Happy '+age+'th birthday '+uname, 130, 470)
       ctx.fillText('DOB: '+dob, 250, 520)
 
-      ctx.fillStyle = "blue";
+      ctx.fillStyle = sc;
          ctx.beginPath();
 for(i=1;i<=n;i++){
          ctx.moveTo(108+x, 0.0+y);
@@ -36,7 +54,7 @@ for(i=1;i<=n;i++){
          ctx.closePath();
 
   if(i%4==0){
-    y+=200;x=0;
+    y+=200;x=20;
   }
   else{
     x+=200
@@ -46,16 +64,39 @@ ctx.fill();
 
     }
   </script>
+
+
+<style>
+  input{
+    margin: 20px 5px;
+  }
+  .inputsDiv{
+    float: left;
+  }
+  canvas{
+    float: left;
+    margin: 20px 40px;
+  }
+</style>
 </head>
 <body>
-  <canvas width="900" height="600" style="border-style: solid; border-color: black;"></canvas>
-<br>
-<input type="text" id="name" placeholder="Name">
-<input type="number" id="age" placeholder="Age">
-<input type="date" id="dob">
-<input type="number" id="ns" min=1 max="8" placeholder="No. of Stars">
-
-<input type="button" value="Submit" onclick="init()">
+  <canvas width="860" height="600" style="border-style: solid; border-color: rgb(255, 166, 0);text-align: center;overflow: scroll;"></canvas>
+<div class="inputsDiv">
+  <h3>Enter the inputs here</h3>
+  <label for="name">Name</label>
+  <input type="text" id="name" placeholder="Name"><br>
+  <label for="age">Age</label>
+  <input type="number" id="age" placeholder="Age"><br>
+  <label for="dob">Date of Birth</label>
+  <input type="date" id="dob" ><br>
+  <label for="ns">Number of Stars(maximum 8) </label>
+  <input type="number" id="ns" style="width:100px" min=1 max="8" placeholder="No. of Stars">
+  <br>
+  <label for="sc">Star color</label>
+  <input type="text" id="sc" placeholder="Star color"><br>
+  <input type="button" value="Submit" onclick="init()">
+  
+</div>
 
 </body>
 </html>
