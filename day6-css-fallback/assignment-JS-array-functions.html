@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Array Functions</title>
+
+  <script>
+    var array1=[]
+    var array2=[]
+
+    function push(id){
+      if(id==1){
+        array1.push(document.getElementById('input1').value);
+        document.getElementById('output').innerHTML="Array 1 <br>"+array1;
+      }
+      else{
+        array2.push(document.getElementById('input2').value);
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }
+    function pop(id){
+      if(id==1){
+        array1.pop();
+        document.getElementById('output').innerHTML="Array 1<br> "+array1;
+      }
+      else{
+        array2.pop();
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }
+    function shift(id){
+      if(id==1){
+        array1.shift();
+        document.getElementById('output').innerHTML="Array 1 <br>"+array1;
+      }
+      else{
+        array2.shift();
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }
+    function join(id){
+      if(id==1){
+        var temp=array1.join('->');
+        document.getElementById('output').innerHTML="Array 1 <br>"+temp;
+      }
+      else{
+        var temp=array2.join('->');
+        document.getElementById('output').innerHTML="Array 2 <br>"+temp;
+      }
+    }
+    function unshift(id){
+      if(id==1){
+        array1.unshift(document.getElementById('input1').value);
+        document.getElementById('output').innerHTML="Array 1 <br>"+array1;
+      }
+      else{
+        array2.unshift(document.getElementById('input2').value);
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }
+
+    function concat(){
+     var array3= array1.concat(array2);
+     document.getElementById('output').innerHTML="Concatinated arrays: <br>"+array3;
+
+    }
+  </script>
+  <style>
+    header{
+      text-align: center;
+      background-color: cadetblue;
+    }
+    article{
+      float: left;
+    }
+    article button{
+      margin: 20px;
+      box-sizing: border-box;
+      padding: 10px;
+      background-color: rgb(0, 217, 255);
+      border-radius: 3mm;
+      border: none;
+    }
+    #output{
+      width: 100%;
+      border: solid 5px black;
+      margin: 10px;
+      text-align: center;
+    }
+    article:last-child{
+      clear: both;
+      text-align: center;
+      width: 100%;
+      background-color: rgb(65, 230, 0);
+    }
+  </style>
+</head>
+<body>
+<header><h1>JS Array Functions</h1></header>
+
+<section>
+  <article>
+      <label for="input1">Add elements to array1</label>
+  <input type="text" id="input1" placeholder="Push to array1">
+  <button onclick="push(1)">Push</button>
+  <button onclick="pop(1)">Pop</button>
+  <button onclick="shift(1)">Shift</button>
+  <button onclick="unshift(1)">Unshift</button>
+  <button onclick="join(1)">Join</button>
+  </article>
+
+  <article>
+    <label for="input2">Add elements to array2</label>
+    <input type="text" id="input2" placeholder="Push to array2">
+    <button onclick="push(2)">Push</button>
+    <button onclick="pop(2)">Pop</button>
+    <button onclick="shift(2)">Shift</button>
+    <button onclick="unshift(2)">Unshift</button>
+    <button onclick="join(2)">Join</button>
+  </article>
+
+  <article>
+    <button onclick="concat()">Concat</button>
+    <br>
+    <h3>Output</h3>
+    <div id="output">Perform a function to see the output</div>
+  </article>
+</section>
+
+</body>
+</html>
