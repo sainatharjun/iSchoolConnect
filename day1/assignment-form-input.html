@@ -14,8 +14,9 @@
                 n_rgb = n_match[0]; // RGB value of closest match
                 var value = n_match[1]; // Text string: Color name
                 n_exactmatch = n_match[2]; // True if exact color match
-                if(value)
+                if(source.type=='color'){
                 document.getElementById(target).textContent = value
+                }
                 else        
                 document.getElementById(target).textContent = source.value
                 document.getElementById(target).style.color = source.value
