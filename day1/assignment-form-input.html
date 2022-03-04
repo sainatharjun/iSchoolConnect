@@ -9,12 +9,11 @@
     <script>
         
         function setInputValue(source,target){
-
-            var n_match = ntc.name(source.value);
+                if(source.type=='color'){
+                var n_match = ntc.name(source.value);
                 n_rgb = n_match[0]; // RGB value of closest match
                 var value = n_match[1]; // Text string: Color name
                 n_exactmatch = n_match[2]; // True if exact color match
-                if(source.type=='color'){
                 document.getElementById(target).textContent = value
                 }
                 else        
@@ -99,7 +98,7 @@
             </tr>
             <tr>
                 <td>URL</td>
-                <td><input type="url" oninput="setInputValue(this,'url')"></td>
+                <td><input type="url"  required pattern=".*..*" oninput="setInputValue(this,'url')"></td>
                 <td><output id="url"></output></td>
             </tr>
         </tbody>
