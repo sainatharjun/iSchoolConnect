@@ -5,64 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Greeting Card</title>
   <script>
-    var can,ctx, uname,age,dob,x=20,y=20;
+    var can,ctx, uname,age,dob;
     function init(){
       x=20,y=20;
       uname=document.getElementById('name').value;
       age=document.getElementById('age').value;
       dob=document.getElementById('dob').value;
-      n=document.getElementById('ns').value;
-      sc=document.getElementById('sc').value;
 
-      if(uname==""||age==""||dob==""||n==""||sc==""){
+      if(uname==""||age==""||dob==""){
         alert('Please fill all the fields');
         return;
       }
 
-      if(n>8){
-        alert('Set Number of stars less than 8')
-        return
-      }
-      else if(n<1){
-        alert('Number of stars should atleast be 1')
-        return
-      }
+    
       can=document.getElementsByTagName('canvas')[0];
       ctx=can.getContext('2d');
       ctx.clearRect(0,0,can.width,can.height)
-      ctx.fillStyle = 'darkblue';
-      ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+
       ctx.font="bold 40px arial"
-      ctx.fillStyle = "lightblue";
-      ctx.fillText('Happy '+age+'th birthday '+uname, 130, 470)
-      ctx.fillText('DOB: '+dob, 250, 520)
-
-      ctx.fillStyle = sc;
-         ctx.beginPath();
-for(i=1;i<=n;i++){
-         ctx.moveTo(108+x, 0.0+y);
-         ctx.lineTo(141+x, 70+y);
-         ctx.lineTo(218+x, 78.3+y);
-         ctx.lineTo(162+x, 131+y);
-         ctx.lineTo(175+x, 205+y);
-         ctx.lineTo(108+x, 170+y);
-         ctx.lineTo(41.2+x, 205+y);
-         ctx.lineTo(55+x, 131+y);
-         ctx.lineTo(1+x, 78+y);
-         ctx.lineTo(75+x, 68+y);
-         ctx.lineTo(108+x, 0+y);
-         ctx.closePath();
-
-  if(i%4==0){
-    y+=200;x=20;
-  }
-  else{
-    x+=200
-  }
-}
-ctx.fill(); 
+      ctx.fillStyle = "darkblue";
+      ctx.fillText('Happy '+age+'th birthday '+uname, 180, 270)
+      ctx.fillText('DOB: '+dob, 240, 320)
+ 
+ctx.globalCompositeOperation='destination-over';
 
     }
+
+
+function addStar(){
+ var x=Math.floor((Math.random() * 750) + -150),y=Math.floor((Math.random() * 500) + 1);
+      var sc=document.getElementById('sc').value;
+      can=document.getElementsByTagName('canvas')[0];
+      ctx=can.getContext('2d');
+      ctx.fillStyle = sc;
+     
+     
+        ctx.beginPath();
+
+         ctx.moveTo(208+x, 0.0+y);
+         ctx.lineTo(225+x, 50+y);
+         ctx.lineTo(278+x, 58.3+y);
+         ctx.lineTo(242+x, 91+y);
+         ctx.lineTo(255+x, 145+y);
+         ctx.lineTo(208+x, 120+y);
+         ctx.lineTo(155.2+x, 145+y);
+         ctx.lineTo(175+x, 91+y);
+         ctx.lineTo(130+x, 58+y);
+         ctx.lineTo(185+x, 50+y);
+         ctx.lineTo(208+x, 0+y);
+         ctx.closePath();
+
+ctx.fill(); 
+ 
+}
   </script>
 
 
@@ -89,13 +84,11 @@ ctx.fill();
   <input type="number" id="age" placeholder="Age"><br>
   <label for="dob">Date of Birth</label>
   <input type="date" id="dob" ><br>
-  <label for="ns">Number of Stars(maximum 8) </label>
-  <input type="number" id="ns" style="width:100px" min=1 max="8" placeholder="No. of Stars">
-  <br>
+  <input type="button" value="Submit" onclick="init()"><br>
   <label for="sc">Star color</label>
   <input type="text" id="sc" placeholder="Star color"><br>
-  <input type="button" value="Submit" onclick="init()">
-  
+  <input type="button" value="Add Star" onclick="addStar()">
+
 </div>
 
 </body>

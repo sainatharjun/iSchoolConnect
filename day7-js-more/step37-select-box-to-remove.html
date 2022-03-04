@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 100%;
+      background-color: black;
+      min-height: 400px;
+      overflow: auto;
+      display: block;
+      text-align: left;
+    }
+    div{
+      display: inline-block;
+      width: 150px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 40px;
+      height: 150px;
+      background-color: blanchedalmond;
+      margin: 10px;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="container"></div>
+  <button>Add Element</button>
+  <button>Remove 1st element</button>
+  <button>Remove last element</button>
+
+
+  <script>
+    var count=1;
+    var container=document.getElementsByClassName('container')[0]
+    document.addEventListener('DOMContentLoaded', function(){
+      container.addEventListener('click',removeChildElement)
+      document.getElementsByTagName('Button')[0].addEventListener('click',addBoxHandler)
+      document.getElementsByTagName('Button')[1].addEventListener('click',removeFirstBoxHandler)
+      document.getElementsByTagName('Button')[2].addEventListener('click',removeLastBoxHandler)
+
+    })
+    function addBoxHandler(){
+      var element=document.createElement('div');
+      element.innerText=count;
+      container.appendChild(element)
+      count++
+    }
+
+    function removeFirstBoxHandler(){
+      var element=container.firstChild;
+      if(element){
+        container.removeChild(element)
+      }
+      else{
+        alert('no child to remove')
+      }
+    }
+    function removeLastBoxHandler(){
+      var element=container.lastChild;
+      if(element){
+        container.removeChild(element)
+      }
+      else{
+        alert('no child to remove')
+
+      }
+      count--
+    }
+    function removeChildElement(evt){
+      if(evt.target.getAttribute('class')=='container'){
+        alert('This is container')
+      }
+      else{
+        container.removeChild(evt.target)
+      }
+    }
+  </script>
+</body>
+</html>

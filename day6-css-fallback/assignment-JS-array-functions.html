@@ -59,6 +59,81 @@
         document.getElementById('output').innerHTML="Array 2 <br>"+array2;
       }
     }
+    function slice(id){
+      if(id==1){
+        var temp=array1.slice(1,3);
+        document.getElementById('output').innerHTML="Sliced part from Array 1 <br>"+temp;
+      }
+      else{
+        var temp=array2.slice(1,3);
+        document.getElementById('output').innerHTML="Sliced part from Array 2 <br>"+temp;
+      }
+    }
+    function splice(id){
+      if(id==1){
+        array1.splice(1,3,document.getElementById('input1').value);
+        document.getElementById('output').innerHTML="Array 1 <br>"+array1;
+      }
+      else{
+        array2.splice(1,3,document.getElementById('input2').value);
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }  
+    function sort(id){
+      if(id==1){
+        array1.sort();
+        document.getElementById('output').innerHTML="Array 1 <br>"+array1;
+      }
+      else{
+        array2.sort();
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }
+    function sortDescending(id){
+      if(id==1){
+        array1.sort((a,b)=>(b-a));
+        document.getElementById('output').innerHTML="Array 1 <br>"+array1;
+      }
+      else{
+        array2.sort((a,b)=>(b-a));
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }
+    function reverse(id){
+      if(id==1){
+        array1.reverse();
+        document.getElementById('output').innerHTML="Array 1 <br>"+array1;
+      }
+      else{
+        array2.reverse();
+        document.getElementById('output').innerHTML="Array 2 <br>"+array2;
+      }
+    }
+    function toString(id){
+      if(id==1){
+        var temp=array1.toString();
+        document.getElementById('output').innerHTML="Array 1 <br>"+temp;
+        console.log(temp)
+      }
+      else{
+        var temp=array2.toString();
+        document.getElementById('output').innerHTML="Array 2 <br>"+temp;
+        console.log(temp)
+      }
+    }
+    function toLocaleString(id){
+      console.log('temp')
+      if(id==1){
+        var temp=array1.toLocaleString();
+        document.getElementById('output').innerHTML="Array 1 <br>"+temp;
+        console.log('temp')
+      }
+      else{
+        var temp=array2.toLocaleString();
+        document.getElementById('output').innerHTML="Array 2 <br>"+temp;
+        console.log(temp)
+      }
+    }
 
     function concat(){
      var array3= array1.concat(array2);
@@ -75,7 +150,7 @@
       float: left;
     }
     article button{
-      margin: 20px;
+      margin: 25px 5px;
       box-sizing: border-box;
       padding: 10px;
       background-color: rgb(0, 217, 255);
@@ -108,6 +183,13 @@
   <button onclick="shift(1)">Shift</button>
   <button onclick="unshift(1)">Unshift</button>
   <button onclick="join(1)">Join</button>
+  <button onclick="slice(1)">Slice(1,3)</button>
+  <button onclick="splice(1)">Splice(1,3)</button>
+  <button onclick="reverse(1)">Reverse</button>
+  <button onclick="sort(1)">Sort</button>
+  <button onclick="sortDescending(1)">Sort Descending</button>
+  <button onclick="toString(1)">toString</button>
+  <button onclick="toLocaleString(1)">toLocaleString</button>
   </article>
 
   <article>
@@ -118,6 +200,14 @@
     <button onclick="shift(2)">Shift</button>
     <button onclick="unshift(2)">Unshift</button>
     <button onclick="join(2)">Join</button>
+    <button onclick="slice(2)">Slice(1,3)</button>
+    <button onclick="splice(2)">Splice(1,3)</button>
+    <button onclick="reverse(2)">Reverse</button>
+    <button onclick="sort(2)">Sort</button>
+    <button onclick="sortDescending(2)">Sort Descending</button>
+    <button onclick="toString(2)">toString</button>
+    <button onclick="toLocaleString(2)">toLocaleString</button>
+
   </article>
 
   <article>
