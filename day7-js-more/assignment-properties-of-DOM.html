@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties of DOM</title>
+<style>
+  header{
+    text-align: center;
+    line-height: 200px;
+    height: 200px;
+    background-color: rgb(67, 102, 255);
+  }
+  article{
+    margin: 40px;
+  }
+  input{
+    margin: 10px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>
+      Properties of DOM
+    </h1>
+  </header>
+  <section>
+    <article style="text-align: center;">
+      <h1>Check Console for output</h1>
+    </article>
+    <article>
+      <form action="get" name="testForm" id="testForm">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" id="email">
+      </form>
+    </article>
+    <article>
+      <img src="../day5-css3-rwd-animation/images/superman.jpg" alt="">
+      <br><br>
+      <a href="google.com">Google</a>
+    </article>
+  </section>
+  <script>
+    document.cookie = "Sainath Arjun";
+    console.log(document.body)
+    console.log(document.title)
+    console.log(document.forms['testForm'])
+    console.log(document.testForm)
+    console.log(document.forms.item(0).id)
+    console.log(document.images)
+    console.log(document.images[0].src)
+    console.log(document.scripts)
+    console.log(document.scripts[0].text)
+    console.log(document.links)
+    console.log(document.links[0].href)
+    console.log(document.cookie)
+
+  </script>
+</body>
+</html>
