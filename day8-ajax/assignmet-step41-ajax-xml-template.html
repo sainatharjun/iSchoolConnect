@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    #box{
+      margin: auto;
+      width: 940px;
+      height: 400px;
+      background-color: grey;
+      overflow: auto;
+      padding: 20px;
+      color: white;
+    }
+    .hero-box{
+      float: left;
+      border: 3px solid black;
+      width: 450px;
+      box-sizing: border-box;
+      padding: 10px;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    .hero-box h1{
+      color: black;
+    }
+    button{
+      margin: 20px 40%;
+      width: 20%;
+    }
+  </style>
+
+  <script>
+    var xhr=new  XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+      console.log('Ready state value: ', xhr.readyState);
+      if(xhr.status==200 && xhr.readyState==4){
+        var hero=xhr.responseXML.getElementsByTagName('hl');
+        for(i=0;i<hero.length;i++){
+        document.getElementById('box').innerHTML+= '<div class="hero-box"> <img src="../'+hero[i].getElementsByTagName('poster')[0].innerHTML+'" alt=""> <h1>'+hero[i].getElementsByTagName('title')[0].innerHTML+'</h1> <h1>Full Name: '+hero[i].getElementsByTagName('firstname')[0].innerHTML+' '+hero[i].getElementsByTagName('lastname')[0].innerHTML+'</h1> <h3>Ticket Price: Rs.'+hero[i].getElementsByTagName('ticketprice')[0].innerHTML+'</h3> <h3>Release Date: '+hero[i].getElementsByTagName('releasedate')[0].innerHTML+'</h3> </div>'
+
+        }
+      }
+      else{
+        document.getElementById('box').innerHTML= 'Status: '+xhr.status+' | Status Text: '+xhr.statusText+'<br>'
+
+      }
+    };
+    document.addEventListener('DOMContentLoaded',function(){
+      document.getElementsByTagName('button')[0].addEventListener('click',function(){
+        xhr.open('get','data.xml',true);
+        xhr.send();
+      })
+     
+    })
+  </script>
+</head>
+<body>  
+  <button> Fetch Data </button>
+  <div id="box">
+    <!-- <div class="hero-box">
+      <img src="'+hero[i].getElementsByTagName('poster')[0].innerHTML+'" alt="">
+      <h1>'+hero[i].getElementsByTagName('title')[0].innerHTML+'</h1>
+      <h1>Full Name: '+hero[i].getElementsByTagName('firstname')[0].innerHTML+' '+hero[i].getElementsByTagName('lastname')[0].innerHTML+'</h1>
+      <h3>Ticket Price: '+hero[i].getElementsByTagName('ticketprice')[0].innerHTML+'</h3>
+      <h3>Release Date: '+hero[i].getElementsByTagName('releasedate')[0].innerHTML+'</h3>
+    </div> -->
+
+
+  </div>
+</body>
+</html>   

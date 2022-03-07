@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    #box{
+      margin: auto;
+      width: 600px;
+      height: 200px;
+      background-color: grey;
+      overflow: auto;
+      padding: 20px;
+      color: white;
+    }
+    button{
+      margin: 20px 40%;
+      width: 20%;
+    }
+  </style>
+
+  <script>
+    var xhr=new  XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+      console.log('Ready state value: ', xhr.readyState);
+      if(xhr.status==200 && xhr.readyState==4){
+        var hero=xhr.responseXML.getElementsByTagName('hl');
+        for(i=0;i<hero.length;i++){
+        document.getElementById('box').innerHTML+= '<li>'+hero[i].getElementsByTagName('title')[0].firstChild.nodeValue+'</li>'
+
+        }
+      }
+      else{
+        document.getElementById('box').innerText= 'Status: '+xhr.status+' | Status Text: '+xhr.statusText
+
+      }
+    };
+    document.addEventListener('DOMContentLoaded',function(){
+      document.getElementsByTagName('button')[0].addEventListener('click',function(){
+        xhr.open('get','data.xml',true);
+        xhr.send();
+      })
+     
+    })
+  </script>
+</head>
+<body>  
+  <button> Fetch Data </button>
+  <ol id="box"></ol>
+</body>
+</html>   

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+ #box{
+      margin: auto;
+      width: 940px;
+      height: 400px;
+      background-color: grey;
+      overflow: auto;
+      padding: 20px;
+      color: white;
+    }
+    .hero-box{
+      float: left;
+      border: 3px solid black;
+      width: 450px;
+      box-sizing: border-box;
+      padding: 10px;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    .hero-box h1{
+      color: black;
+    }
+    button{
+      margin: 20px 40%;
+      width: 20%;
+    }
+  </style>
+
+  <script>
+    var xhr=new  XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+      console.log('Ready state value: ', xhr.readyState);
+      if(xhr.status==200 && xhr.readyState==4){
+        var heroList=JSON.parse(xhr.responseText).hl
+        for(i=0;i<heroList.length;i++){
+          document.getElementById('box').innerHTML+= '<div class="hero-box"> <img src="../'+heroList[i].poster+'" alt=""> <h1>'+heroList[i].title+'</h1> <h1>Full Name: '+heroList[i].firstname+' '+heroList[i].lastname+'</h1> <h3>Ticket Price: Rs.'+heroList[i].ticketprice+'</h3> <h3>Release Date: '+heroList[i].releasedate+'</h3> </div>'
+        }
+      }
+      else{
+        document.getElementById('box').innerHTML= 'Status: '+xhr.status+' | Status Text: '+xhr.statusText+'<br>'
+
+      }
+    };
+    document.addEventListener('DOMContentLoaded',function(){
+      xhr.open('get','data.json',true);
+      document.getElementsByTagName('button')[0].addEventListener('click',function(){
+        xhr.send();
+      })
+     
+    })
+  </script>
+</head>
+<body>  
+  <button> Fetch Data </button>
+  <div id="box">
+
+  </div>
+</body>
+</html>   
