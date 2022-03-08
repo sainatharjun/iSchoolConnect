@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function adder1(num1=0,num2=0){
+      return num1+num2
+    }
+    console.log(adder1(5))
+    function adder2(...num){
+      let total=0
+      for(let i=0;i<num.length;i++){
+        total+=num[i];
+      }
+      return total
+    }
+    console.log(adder2(5))
+    console.log(adder2(5,6))
+    console.log(adder2(5,6,7))
+    console.log(adder2(5,6,7,8))
+    console.log(adder2(5,6,7,8,9))
+    console.log(adder2(5,6,7,8,9,10))
+    
+    let arr=[1,2,3,4,5]
+    console.log(adder2(...arr))
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

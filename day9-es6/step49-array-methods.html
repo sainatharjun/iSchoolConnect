@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var vals = [45,23,24,49,23,65,07,99,34,44,08,53]; 
+    vals.forEach((val,index,arr)=>console.log(val,index))
+
+    var doublevals=vals.map(val=>val*2)
+    console.log(vals)
+    console.log(doublevals)
+  
+    var greaterthan50=vals.filter(val=>val>50);
+    console.log(greaterthan50)
+
+    var allgreaterthan5=vals.every(val=>val>5)
+    console.log(allgreaterthan5)
+
+    var somegreaterthan50 =vals.some(val=>{return val>50})
+    console.log(somegreaterthan50)
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
