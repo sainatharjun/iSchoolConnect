@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script>
+    $(()=>{
+      //------------------------------
+      $('li')[1].innerHTML='selected'
+      $('.a.b').css('border','2px solid red')
+      $('li:first-child:first').css('border','2px solid green')
+      //------------------------------
+    })
+  </script>
+</head>
+<body>
+  <ul>
+    <li>List Item 1</li>
+    <li class="a b">List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+  </ul>
+</body>
+</html>

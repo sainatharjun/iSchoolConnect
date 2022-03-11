@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    class Person{
+      city="My city";
+      constructor(ncity){
+        this.city=ncity
+      }
+    }
+
+    class Hero extends Person{
+      firstname="default"
+      lastname="default"
+      _secret="my secret"
+      static version=1001
+      constructor(fname,lname,ncity){
+        super(ncity)
+        this.firstname=fname 
+        this.lastname=lname
+      }
+      fullname(){
+        return this.firstname+this.lastname;
+      }
+      get secret(){
+        return this._secret;
+      }
+      set secret(nsecret){
+        this.secret=nsecret;
+      }
+
+    };
+    let hero=new Hero('Bruce','Wayne','Gotham');
+    console.log(hero.firstname, hero.lastname)
+    console.log(hero.fullname())
+    console.log(hero.secret);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
