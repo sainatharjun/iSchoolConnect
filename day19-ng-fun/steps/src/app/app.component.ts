@@ -26,12 +26,40 @@ import { Component } from '@angular/core';
   <input #ip [value]='title' (input)="title=ip.value">
   <hr>
   <input [(ngModel)]="title">
+  <h3>Title is {{ user.title }}</h3>
+  <input type="text" (keydown.space)="keypresshandler()">
+  <div [class]="selectedClass">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est suscipit maxime fugiat harum culpa nisi ipsam omnis aliquid consequatur a labore, id accusantium rerum, nam tempore cumque eum at ducimus?
+  </div>
+  <hr>
+  <div class="box" [class.orangebox]="agree">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est suscipit maxime fugiat harum culpa nisi ipsam omnis aliquid consequatur a labore, id accusantium rerum, nam tempore cumque eum at ducimus?
+  </div>
 
-  `
+`,
+styles :[`
+.box{
+  width : 400px;
+  padding : 10px;
+  outline : 1px solid black;
+}
+.orangebox{
+  background-color : orange;
+  color : papayawhip;
+}
+.borderBox{
+  border : 5px dashed grey;
+}
+`]
 })
 export class AppComponent {
   title = 'steps';
   agree=true;
+  selectedClass = 'box';
+  user = {
+    firstname : "Tony",
+    title : ''
+  };
   clickHandler(evt?:any) {
     alert(evt.target.innerHTML)
   }
@@ -40,6 +68,9 @@ export class AppComponent {
   }
   changeip(val:string){
     this.title=val;
+  }
+  keypresshandler(){
+    console.log("key was pressed");
   }
 }
 

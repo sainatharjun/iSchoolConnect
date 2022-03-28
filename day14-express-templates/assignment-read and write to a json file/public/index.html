@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script>
+    $.ajax({
+      url:'read',
+      success:(result)=>{
+        result.forEach((res)=>{
+                  $('.read').append("<div class='user'>Username: "+res.username+"<br>Gender: "+res.gender+"<br>Age: "+res.age+"<div>")
+        })
+      }
+    })
+
+    function writeJSON(){
+      let username=$('#username').val()
+      let gender=$('#gender').val()
+      let age=$('#age').val()
+      let user={username:username,gender:gender,age:parseInt(age)}
+
+ $.ajax({
+          url:'/write',
+          type:'post',
+          data:JSON.stringify(user),
+          contentType:'application/json',
+          dataType:'json',
+          success: function(res){
+            console.log('Added');
+            window.location.reload()
+          }
+        })
+    }
+  </script>
+  <style>
+    .user{float: left;
+    margin: 20px;
+    }
+    .read{
+      text-align:center;
+      background-color:lightblue;
+      float: left;
+      width: 100%;
+    }
+    section{
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="read" ></div>
+    <br><br><br>
+    <div class="write">
+      <h4>Write into JSON file</h4>
+      <input id="username" placeholder="Username"><br>
+      <input id="gender" placeholder="Gender"><br>
+      <input id="age" placeholder="Age"><br>
+      <button onclick="writeJSON()">Add</button>
+    </div>
+  </section>
+</body>
+</html>

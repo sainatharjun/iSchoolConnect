@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "database" : "iSchoolConnect",
+    "password" : "123456"
+}
