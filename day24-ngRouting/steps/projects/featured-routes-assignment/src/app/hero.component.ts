@@ -6,7 +6,7 @@ import { HeroesService } from './heroes.service';
   selector: 'app-heroadd',
   template: `
     <h2>{{ selectedHero.name }}</h2>
-    <img [src]="selectedHero.image.url" [alt]="selectedHero.name">
+    <img [src]="'assets/'+selectedHero.image.url" [alt]="selectedHero.name">
     <p>{{ selectedHero | json }}</p>
     <hr>
     <input #ryear min="0" max="100" type="range" [(ngModel)]="selectedHero.powerstats.power">

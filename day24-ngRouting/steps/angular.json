@@ -215,7 +215,7 @@
             "karmaConfig": "projects/featured-routes-assignment/karma.conf.js",
             "assets": [
               "projects/featured-routes-assignment/src/favicon.ico",
-              "projects/featured-routes-assignment/src/images"
+              "projects/featured-routes-assignment/src/assets"
             ],
             "styles": [
               "projects/featured-routes-assignment/src/styles.css"
