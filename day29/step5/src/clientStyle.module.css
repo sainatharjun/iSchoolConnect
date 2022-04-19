@@ -1,0 +1,10 @@
+.box{
+    background-color: chartreuse;
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    font-family: 'verdana';
+    color: indigo;
+    text-align: justify;
+    border-radius: 20px;
+}
